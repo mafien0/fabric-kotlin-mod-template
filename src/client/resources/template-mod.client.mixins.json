@@ -1,0 +1,11 @@
+{
+	"required": true,
+	"package": "cc.mafien0.template.mixin.client",
+	"compatibilityLevel": "JAVA_21",
+	"client": [
+		"ExampleClientMixin"
+	],
+	"injectors": {
+		"defaultRequire": 1
+	}
+}
