@@ -7,10 +7,10 @@ plugins {
 }
 
 version = project.mod_version
-group = project.maven_group
+group = project.package
 
 base {
-	archivesName = project.archives_base_name
+	archivesName = project.mod_id
 }
 
 repositories {
@@ -21,7 +21,7 @@ loom {
 	splitEnvironmentSourceSets()
 
 	mods {
-		"template-mod" {
+		"${project.mod_id}" {
 			sourceSet sourceSets.main
 			sourceSet sourceSets.client
 		}
@@ -45,7 +45,10 @@ processResources {
     filesMatching("fabric.mod.json") {
         expand "version": project.version,
                 "minecraft": project.minecraft_version,
-                "fabricloader": project.loader_version
+                "fabricloader": project.loader_version,
+                "mod_id": project.mod_id,
+                "mod_name": project.mod_name,
+                "github_repo": project.github_repo
     }
 }
 
@@ -72,7 +75,7 @@ jar {
     }
 }
 
-def getBranch() {
+def static getBranch() {
     def env = System.getenv()
     if (env.GITHUB_REF) {
         def branch = env.GITHUB_REF
