@@ -91,14 +91,14 @@ publishMods {
 
     modrinth {
         accessToken = providers.environmentVariable("MODRINTH_TOKEN")
-        projectId = "KYlfnkiO"
+        projectId = project.modrinth_id
         minecraftVersions.add("${project.minecraft_version}")
         projectDescription = providers.fileContents(layout.projectDirectory.file("readme.md")).asText
     }
 
     github {
         accessToken = providers.environmentVariable("GITHUB_TOKEN")
-        repository = System.getenv("CI") ? providers.environmentVariable("GITHUB_REPOSITORY") : "mafien0/YasZoom"
+        repository = System.getenv("CI") ? providers.environmentVariable("GITHUB_REPOSITORY") : project.github_repo
         commitish = System.getenv("CI") ? getBranch() : "main"
     }
 }
