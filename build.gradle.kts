@@ -100,6 +100,11 @@ publishMods {
         minecraftVersions.add(project.property("minecraft_version") as String)
         projectDescription.set(providers.fileContents(layout.projectDirectory.file("README.md")).asText)
     }
+    curseforge {
+        accessToken.set(providers.environmentVariable("CURSEFORGE_TOKEN"))
+        projectId.set(project.property("curseforge_id") as String)
+        minecraftVersions.add(project.property("minecraft_version") as String)
+    }
 
     github {
         accessToken.set(providers.environmentVariable("GITHUB_TOKEN"))

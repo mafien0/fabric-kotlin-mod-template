@@ -6,9 +6,4 @@ Mod Template for fabric with Kotlin language
 2. Configure project properties in:  
 `gradle.properties`  
 `src/main/resources/fabric.mod.json`
-3. Add modrinth PAT to repository secrets
-
-
-### Project Todo:
-- [ ] Extend readme
-- [ ] Curseforge compatibility
+3. Add modrinth PAT and Curseforge api to repository secrets
